@@ -18,7 +18,7 @@ import java.util.Scanner;
         // Change if needed
         System.out.println("==============================================");
         System.out.println("");
-        System.out.println("Welcome to Your Personal Recipe App!");
+        System.out.println("Welcome to Your Personal Recipe App!"); // might change name
         System.out.println();
         System.out.println("==============================================");
 
@@ -88,13 +88,13 @@ import java.util.Scanner;
     }
 }
 class Recipe {
-    // will add methods and variables later :)
+    
 
 }
 
 class RecipeBook {
     //will add more later
     public RecipeBook(){
-        // testing ingredient class
+        
     }
 }
