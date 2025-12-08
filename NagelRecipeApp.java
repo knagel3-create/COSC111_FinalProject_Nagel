@@ -9,7 +9,9 @@
  */
 
 import java.util.Scanner;
+
  public class NagelRecipeApp {
+
     public static void main (String[] args) {
         Scanner kb= new Scanner(System.in);
         RecipeBook book= new RecipeBook();
@@ -17,9 +19,11 @@ import java.util.Scanner;
         // Welcoming App Title
         // Change if needed
         System.out.println("==============================================");
+        System.out.println("==============================================");
         System.out.println("");
         System.out.println("Welcome to Your Personal Recipe App!"); // might change name
         System.out.println();
+        System.out.println("==============================================");
         System.out.println("==============================================");
 
         // while loop for choice --> go on until user is satified
@@ -56,45 +60,5 @@ import java.util.Scanner;
             }
         }
         kb.close();
-    }
-}
-
-
- //Current Phase One --> Ingredient class complete and other classes made to test ingredient class
- class Ingredient {
-// variables
-    private String recipeName;
-    private double recipeQuanity;
-    private String recipeUnit;
-
-    // Constructor
-    public Ingredient (String recipeName, double recipeQuanity, String recipeUnit) {
-        this.recipeName= recipeName;
-        this.recipeQuanity= recipeQuanity;
-        this.recipeUnit= recipeUnit;
-    }
-    public String getRecipeName() {
-        return recipeName;
-    }
-    public double getRecipeQuanity() {
-        return recipeQuanity;
-    }
-    public String getRecipeUnit() {
-        return recipeUnit;
-    }
-    @Override
-    public String toString(){
-        return recipeQuanity + " " + recipeUnit + " " + recipeName;
-    }
-}
-class Recipe {
-    
-
-}
-
-class RecipeBook {
-    //will add more later
-    public RecipeBook(){
-        
     }
 }
