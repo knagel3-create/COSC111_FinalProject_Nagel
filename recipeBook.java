@@ -49,7 +49,8 @@ import java.util.ArrayList;
     // Method to print names of all stored recipes
     public void listRecipeNames() {
         if (recipes.isEmpty()) {
-            System.out.println("No recipe stored. Please return to main menu if you would like to add it.");
+            System.out.println("\nNo recipe stored.");
+            System.out.println("\nSelect option 1 from the main menu to add a recipe.");
         } else {
             for (Recipe r : recipes) {
                 System.out.println("- " + r.getRecipeName());
@@ -60,7 +61,8 @@ import java.util.ArrayList;
     // method to print all recipes with full details
     public void printAllRecipes() {
         if (recipes.isEmpty()) {
-            System.out.println("No recipes stored. Please select option one if you would like to add a recipe."); 
+            System.out.println("No recipe stored.");
+            System.out.println("\nSelect option 1 from the main menu to add a recipe."); 
         } else {
             for (Recipe r : recipes) {
                 System.out.println(r);

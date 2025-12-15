@@ -4,7 +4,7 @@
  * 
  * COSC 111
  * 
- * Interactive Recipe Box
+ * Interactive Recipe App
  * Purpose: Store recipes, add new recipes and ingredients, and list current recipes.
  */
 
@@ -31,9 +31,9 @@ public class NagelRecipeApp {
             System.out.println("\n-------------------------------------------------\n");
             System.out.println("==== Main Menu ====\n");
             System.out.println("1. Add Recipe");
-            System.out.println("2. Search for Recipe");
-            System.out.println("3. List Stored Recipes");
-            System.out.println("4. Print Recipes");
+            System.out.println("2. Search for a Recipe");
+            System.out.println("3. View Recipe Names");
+            System.out.println("4. View Full Recipes");
             System.out.println("5. Exit\n");
             
             System.out.print("Your choice: ");
@@ -41,7 +41,7 @@ public class NagelRecipeApp {
             // String Choice from user
             String choice = kb.nextLine();
 
-            switch (choice){ // will fulfill later
+            switch (choice){
                 case "1":
                     System.out.println();
                     addRecipe(kb, book);
@@ -96,7 +96,7 @@ public class NagelRecipeApp {
         Recipe recipe = new Recipe (recipeName);
 
         // print entry instructions neatly
-        System.out.println("-------- Ingredient Entry --------\n");
+        System.out.println("\n-------- Ingredient Entry --------\n");
         System.out.println("Enter each ingredient one at a time.");
         System.out.println("When complete, press ENTER or type DONE.\n");
         
@@ -113,7 +113,8 @@ public class NagelRecipeApp {
             // I used chat to help me build a stop option for my instructions and ingredients
             if (ingName.isBlank() || ingName.equalsIgnoreCase("DONE")) {
                 if (hasIngredient) break;
-                System.out.println("Please enter at least one ingredient\n");
+                System.out.println("\nPlease enter at least one ingredient\n");
+                continue;
             }
 
             // I had CHAT help me create a working exception catch incase the user inserts 
@@ -130,7 +131,7 @@ public class NagelRecipeApp {
                 }
                 break;
             } catch (NumberFormatException e) {
-                System.out.println("Please enter a number. (e.g. 1.5, 2.0, 3.0)");
+                System.out.println("\nPlease enter a number. (e.g. 1.5, 2.0, 3.0)");
             }
         }   
             System.out.print("Unit: ");
@@ -139,6 +140,7 @@ public class NagelRecipeApp {
 
             // adds new ingredient
             recipe.addIngredient (new Ingredient (ingName.trim(), amount, unit));
+            hasIngredient=true;
         }
 
         // While loop for Instructions ---> Print it neatly
@@ -173,10 +175,10 @@ public class NagelRecipeApp {
 
         // Store recipe and output message if done successfully
         book.addRecipe(recipe);
-        System.out.println("Recipe added successfully!");    
+        System.out.println("\nRecipe added successfully!");    
     }
     
-    // ============ Option 2 method ============
+    // ============ Method for Menu option 2 ============
     public static void searchForRecipe (Scanner kb, RecipeBook book) {
         // Print statement for recipe search
         System.out.print("Please enter the recipe you would like to search for: ");
@@ -188,6 +190,10 @@ public class NagelRecipeApp {
         // if else statement to test is recipe is stored in program or not
         if (r == null) {
             System.out.println("\nRecipe not found.");
+            System.out.println("\nYou may: ");
+            System.out.println("1- Add a new recipe.");
+            System.out.println("3- Display all recipe titles.");
+            System.out.println("4- Display all complete recipes.");
         } else {
             System.out.println("\nRecipe found!\n");
             System.out.println(r);
